@@ -10,7 +10,7 @@ export class App extends React.Component {
         {/* <Hello /> */}
         <h1>My Awesome Application</h1>
         <Hello />
-        {/* <Message /> */}
+        <Message />
         <Welcome />
       </div>
     );
