@@ -1,16 +1,19 @@
 import React from "react";
 import { Hello } from "./Hello";
+import { Message } from "./Message";
 
 export class App extends React.Component {
   render() {
     return (
       <div>
-        <Hello />
+        {/* <Hello /> */}
         <h1>My Awesome Application</h1>
         <Hello />
+        <Message />
       </div>
     );
   }
 }
-// risposta esercizio components 08
-// Riprodurrà il componente più volte
+
+//Risposta esercizio components 09
+//Riprodurrà il componente Message
