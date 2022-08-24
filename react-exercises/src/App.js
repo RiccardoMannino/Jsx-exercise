@@ -10,8 +10,8 @@ export class App extends React.Component {
         {/* <Hello /> */}
         <h1>My Awesome Application</h1>
         <Hello />
-        {/* <Message /> */}
-        <Welcome name="Riccardo" />
+        <Message />
+        <Welcome />
       </div>
     );
   }
