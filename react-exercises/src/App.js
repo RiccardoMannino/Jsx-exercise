@@ -1,6 +1,6 @@
 import React from "react";
 import { Hello } from "./Hello";
-import { Message } from "./Message";
+// import { Message } from "./Message";
 import { Welcome } from "./Welcome";
 
 export class App extends React.Component {
@@ -10,7 +10,7 @@ export class App extends React.Component {
         {/* <Hello /> */}
         <h1>My Awesome Application</h1>
         <Hello />
-        <Message />
+        {/* <Message /> */}
         <Welcome age={33} />
       </div>
     );
