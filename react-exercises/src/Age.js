@@ -8,4 +8,4 @@ export class Age extends React.Component {
       </>
     );
   }
-} // Se il valore della props age è maggiore di 18 allora verrà renderizzato il componente Age altrimenti non sarà renderizzato
+}
