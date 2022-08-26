@@ -8,8 +8,8 @@ export class Welcome extends React.Component {
         <p>
           Welcome, <strong>{this.props.name}</strong>
         </p>
-        <p>{this.props.age > 18 && <Age age={this.props.age} />}</p>
-      </>
+        {this.props.age && <Age age={this.props.age} />}
+      </> // Se il valore della props age è assente il componente Age non sarà renderizzato(conditional-rendering-02)
     );
   }
 }
