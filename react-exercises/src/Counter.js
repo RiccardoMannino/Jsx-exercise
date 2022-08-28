@@ -1,4 +1,5 @@
 import React from "react";
+import { CounterDisplay } from "./CounterDisplay";
 
 export class Counter extends React.Component {
   state = {
@@ -20,7 +21,7 @@ export class Counter extends React.Component {
   // il suo valore in aggiornamento dipende dal valore corrente. Quindi questa forma si usa per aggiornare un componente come nel nostro caso.
 
   render() {
-    return <h1>Count: {this.state.count}</h1>;
+    return <CounterDisplay count={this.state.count} />;
   }
 }
 // Counter.defaultProps = {
