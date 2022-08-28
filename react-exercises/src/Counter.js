@@ -16,6 +16,8 @@ export class Counter extends React.Component {
       });
     }, 1000);
   }
+  // in questo caso il setState ha bisogno di essere chiamato con una callback function perchè
+  // il suo valore in aggiornamento dipende dal valore corrente. Quindi questa forma si usa per aggiornare un componente come nel nostro caso.
 
   render() {
     return <h1>Count: {this.state.count}</h1>;
