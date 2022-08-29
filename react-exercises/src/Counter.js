@@ -10,11 +10,12 @@ export class Counter extends React.Component {
     super(props);
 
     setInterval(() => {
-      this.setState((state) => {
-        return {
-          count: state.count + this.props.incrementBy,
-        };
-      });
+      this.setState((state) => ({
+        count:
+          state.count + this.props.incrementBy >= this.props.incrementBy * 11 // se lo moltiplicavo per 10 si resettava quando appariva il  9
+            ? this.props.initialValue
+            : state.count + this.props.incrementBy,
+      }));
     }, this.props.timeout);
   }
   // in questo caso il setState ha bisogno di essere chiamato con una callback function perchè
