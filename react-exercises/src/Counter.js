@@ -25,10 +25,7 @@ export class Counter extends React.Component {
 
   tick() {
     this.setState({
-      count:
-        this.state.count + this.props.incrementBy >= this.props.incrementBy * 11 // se lo moltiplicavo per 10 si resettava quando appariva il  9
-          ? this.props.initialValue
-          : this.state.count + this.props.incrementBy,
+      count: this.state.count + this.props.incrementBy,
     });
   }
 
