@@ -6,20 +6,31 @@ export class Counter extends React.Component {
     count: this.props.initialValue,
   };
 
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
 
-    setInterval(() => {
-      this.setState((state) => ({
-        count:
-          state.count + this.props.incrementBy >= this.props.incrementBy * 11 // se lo moltiplicavo per 10 si resettava quando appariva il  9
-            ? this.props.initialValue
-            : state.count + this.props.incrementBy,
-      }));
-    }, this.props.timeout);
+  //    setInterval(() => {
+  //      this.setState((state) => ({
+  //       count:
+  //           state.count + this.props.incrementBy >= this.props.incrementBy * 11
+  //           ? this.props.initialValue
+  //           : state.count + this.props.incrementBy,
+  //     }));
+  //    }, this.props.timeout);
+  // }
+
+  componentDidMount() {
+    this.timerID = setInterval(() => this.tick(), 1000);
   }
-  // in questo caso il setState ha bisogno di essere chiamato con una callback function perchè
-  // il suo valore in aggiornamento dipende dal valore corrente. Quindi questa forma si usa per aggiornare un componente come nel nostro caso.
+
+  tick() {
+    this.setState({
+      count:
+        this.state.count + this.props.incrementBy >= this.props.incrementBy * 11 // se lo moltiplicavo per 10 si resettava quando appariva il  9
+          ? this.props.initialValue
+          : this.state.count + this.props.incrementBy,
+    });
+  }
 
   render() {
     return <CounterDisplay count={this.state.count} />;
