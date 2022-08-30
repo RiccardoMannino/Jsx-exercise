@@ -27,6 +27,14 @@ export class Counter extends React.Component {
     clearInterval(this.timerID);
   }
 
+  componentDidUpdate() {
+    if (this.state.count >= this.props.incrementBy * 11) {
+      this.setState((state) => ({
+        count: this.props.initialValue,
+      }));
+    }
+  }
+
   tick() {
     this.setState({
       count: this.state.count + this.props.incrementBy,
