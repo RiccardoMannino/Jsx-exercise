@@ -6,7 +6,7 @@ import { Hello } from "./Hello";
 import { InteractiveWelcome } from "./InteractiveWelcome";
 import { Login } from "./Login";
 // import { Message } from "./Message";
-import { Welcome } from "./Welcome";
+// import { Welcome } from "./Welcome";
 
 export class App extends React.Component {
   render() {

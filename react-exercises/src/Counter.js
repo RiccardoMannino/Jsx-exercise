@@ -9,14 +9,14 @@ export class Counter extends React.Component {
   // constructor(props) {
   //   super(props);
 
-  //    setInterval(() => {
-  //      this.setState((state) => ({
-  //       count:
-  //           state.count + this.props.incrementBy >= this.props.incrementBy * 11
-  //           ? this.props.initialValue
-  //           : state.count + this.props.incrementBy,
-  //     }));
-  //    }, this.props.timeout);
+  //  setInterval(() => {
+  //    this.setState((state) => ({
+  //     count:
+  //         state.count + this.props.incrementBy >= this.props.incrementBy * 11
+  //         ? this.props.initialValue
+  //         : state.count + this.props.incrementBy,
+  //   }));
+  //  }, this.props.timeout);
   // }
 
   componentDidMount() {
