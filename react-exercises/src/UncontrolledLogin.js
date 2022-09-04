@@ -22,6 +22,10 @@ export class UncontrolledLogin extends React.Component {
     this._formRef.current.elements.remember.checked = true;
   };
 
+  componentDidMount() {
+    this._formRef.current.elements.username.focus();
+  }
+
   render() {
     return (
       <div>
