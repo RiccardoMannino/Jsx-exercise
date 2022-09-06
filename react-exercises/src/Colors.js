@@ -2,12 +2,14 @@ import React from "react";
 
 export class Colors extends React.Component {
   render() {
-    //
-
-    const colori = this.props.items.map((colore) => <li>{colore}</li>);
+    // in questo modo però il devtools ci notificherà che la lista ha bisogno di avere una key
     return (
       <div>
-        <ul>{colori}</ul>
+        <ul>
+          {this.props.items.map((colore) => (
+            <li>{colore}</li>
+          ))}
+        </ul>
       </div>
     );
   }
