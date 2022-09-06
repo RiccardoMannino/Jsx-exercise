@@ -5,6 +5,7 @@ import { Colors } from "./Colors";
 import { Counter } from "./Counter";
 import { Hello } from "./Hello";
 import { InteractiveWelcome } from "./InteractiveWelcome";
+import { TodoList } from "./ToDolist";
 // import { Login } from "./Login";
 import { UncontrolledLogin } from "./UncontrolledLogin";
 // import { Message } from "./Message";
@@ -26,6 +27,7 @@ export class App extends React.Component {
         {/* <Login /> */}
         <UncontrolledLogin />
         <Colors items={["Rosso", "Verde", "Giallo", "Blu"]} />
+        <TodoList />
       </div>
     );
   }
