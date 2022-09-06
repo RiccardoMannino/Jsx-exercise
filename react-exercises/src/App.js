@@ -1,6 +1,7 @@
 import React from "react";
 import { ClickCounter } from "./ClickCounter";
 import { ClickTracker } from "./ClickTracker";
+import { Colors } from "./Colors";
 import { Counter } from "./Counter";
 import { Hello } from "./Hello";
 import { InteractiveWelcome } from "./InteractiveWelcome";
@@ -18,12 +19,13 @@ export class App extends React.Component {
         <Hello />
         {/* <Message /> */}
         {/* <Welcome name="Riccardo" age={18} /> */}
-        <Counter timeout={1000} incrementBy={1} initialValue={0} />
+        {/* <Counter timeout={1000} incrementBy={1} initialValue={0} /> */}
         <ClickCounter incrementBy={1} initialValue={0} />
         <ClickTracker />
         <InteractiveWelcome name="Riccardo" />
         {/* <Login /> */}
         <UncontrolledLogin />
+        <Colors items={["Rosso", "Verde", "Giallo", "Blu"]} />
       </div>
     );
   }
