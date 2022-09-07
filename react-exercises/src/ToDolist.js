@@ -1,24 +1,29 @@
-import React from "react";
+import React, { createRef } from "react";
 
 export class TodoList extends React.Component {
-  state = ["buttare la spazzatura", "pulire casa", "studiare"];
+  _inputRef = createRef();
+
+  state = { id: [""] };
 
   handleTodoList = (event) => {
-    event.preventDefault();
+    const name = event.target.name;
+    const todo = this._inputRef.current.value;
 
-    const todos = event.target.elements.todos.value;
-    console.log(todos);
+    this.setState(() => ({
+      [name]: this.state.id.push(todo),
+    }));
   };
 
   render() {
     return (
       <>
         <ul>
-          {this.state.map((todos, index) => (
+          {this.state.id.map((todos, index) => (
             <li key={todos + index}>{todos}</li>
           ))}
         </ul>
-        <input name="todos"></input>
+
+        <input ref={this._inputRef}></input>
         <button onClick={this.handleTodoList}>Aggiungi Task</button>
       </>
     );
