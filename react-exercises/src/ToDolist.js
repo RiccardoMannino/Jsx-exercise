@@ -29,7 +29,10 @@ export class TodoList extends React.Component {
       <>
         <ul>
           {this.state.id.map((todos, index) => (
-            <li key={todos + index}>{todos}</li>
+            <li key={todos + index}>
+              {todos}
+              <button onClick={this.handleReset}>Rimuovi Elemento</button>
+            </li>
           ))}
         </ul>
 
