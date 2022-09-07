@@ -61,6 +61,9 @@ export class Login extends React.Component {
 
         {this.state.username && this.state.password ? (
           <button
+            style={{
+              backgroundColor: this.state.password.length < 8 ? "red" : "green",
+            }}
             type="submit"
             name="login"
             value={this.state.login}
