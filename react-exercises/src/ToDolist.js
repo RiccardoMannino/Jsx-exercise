@@ -24,6 +24,15 @@ export class TodoList extends React.Component {
     }));
   };
 
+  handleReset2 = (event) => {
+    const name = event.target.name;
+    const todo = this._inputRef.current.value;
+
+    this.setState((state) => ({
+      id: (state.id = [""]),
+    }));
+  };
+
   render() {
     return (
       <>
@@ -38,7 +47,7 @@ export class TodoList extends React.Component {
 
         <input ref={this._inputRef}></input>
         <button onClick={this.handleTodoList}>Aggiungi Task</button>
-        <button onClick={this.handleReset}>Rimuovi Task</button>
+        <button onClick={this.handleReset2}>Rimuovi Task</button>
       </>
     );
   }
