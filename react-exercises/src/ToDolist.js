@@ -17,17 +17,13 @@ export class TodoList extends React.Component {
 
   handleReset = (event) => {
     const name = event.target.name;
-    const todo = this._inputRef.current.value;
 
     this.setState(() => ({
-      [name]: this.state.id.pop(todo),
+      [name]: this.state.id.pop(),
     }));
   };
 
-  handleReset2 = (event) => {
-    const name = event.target.name;
-    const todo = this._inputRef.current.value;
-
+  handleReset2 = () => {
     this.setState((state) => ({
       id: (state.id = [""]),
     }));
@@ -38,11 +34,9 @@ export class TodoList extends React.Component {
       <>
         <ul>
           {this.state.id.map((todos, index) => (
-            <li key={todos + index}>
-              {todos}
-              <button onClick={this.handleReset}>Rimuovi Elemento</button>
-            </li>
+            <li key={todos + index}>{todos}</li>
           ))}
+          <button onClick={this.handleReset}>Rimuovi Elemento</button>
         </ul>
 
         <input ref={this._inputRef}></input>
