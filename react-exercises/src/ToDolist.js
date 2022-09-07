@@ -15,6 +15,15 @@ export class TodoList extends React.Component {
     }));
   };
 
+  handleReset = (event) => {
+    const name = event.target.name;
+    const todo = this._inputRef.current.value;
+
+    this.setState(() => ({
+      [name]: this.state.id.pop(todo),
+    }));
+  };
+
   render() {
     return (
       <>
@@ -26,6 +35,7 @@ export class TodoList extends React.Component {
 
         <input ref={this._inputRef}></input>
         <button onClick={this.handleTodoList}>Aggiungi Task</button>
+        <button onClick={this.handleReset}>Rimuovi Task</button>
       </>
     );
   }
