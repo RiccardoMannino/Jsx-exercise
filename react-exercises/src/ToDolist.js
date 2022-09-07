@@ -19,8 +19,8 @@ export class TodoList extends React.Component {
     const name = event.target.name;
     const todo = this._inputRef.current.value;
 
-    this.setState(() => ({
-      [name]: this.state.id.pop(todo),
+    this.setState((state) => ({
+      id: (state.id = [""]),
     }));
   };
 
