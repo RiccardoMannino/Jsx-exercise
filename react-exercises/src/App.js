@@ -16,9 +16,9 @@ import { Container } from "./Container";
 export class App extends React.Component {
   render() {
     return (
-      <Container>
+      <Container title="My Awesome Application">
         {/* <Hello /> */}
-        <h1>My Awesome Application</h1>
+
         <Hello />
         {/* <Message /> */}
         {/* <Welcome name="Riccardo" age={18} /> */}
