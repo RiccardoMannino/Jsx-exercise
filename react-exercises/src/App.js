@@ -8,13 +8,15 @@ import { InteractiveWelcome } from "./InteractiveWelcome";
 import { TodoList } from "./ToDolist";
 import { Login } from "./Login";
 import { UncontrolledLogin } from "./UncontrolledLogin";
+import { Container } from "./Container";
+
 // import { Message } from "./Message";
 // import { Welcome } from "./Welcome";
 
 export class App extends React.Component {
   render() {
     return (
-      <div>
+      <Container>
         {/* <Hello /> */}
         <h1>My Awesome Application</h1>
         <Hello />
@@ -28,7 +30,7 @@ export class App extends React.Component {
         <UncontrolledLogin />
         <Colors items={["Rosso", "Verde", "Giallo", "Blu"]} />
         <TodoList />
-      </div>
+      </Container>
     );
   }
 }
