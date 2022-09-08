@@ -16,6 +16,7 @@ export class TodoList extends React.Component {
   };
 
   handleReset = (event) => {
+    console.log(event);
     const name = event.target.name;
     const todo = this._inputRef.current.value;
 
