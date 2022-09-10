@@ -1,7 +1,6 @@
 import React from "react";
 import { ClickCounter } from "./ClickCounter";
 import { ClickTracker } from "./ClickTracker";
-import { Colors } from "./Colors";
 import { Counter } from "./Counter";
 import { Hello } from "./Hello";
 import { InteractiveWelcome } from "./InteractiveWelcome";
@@ -11,10 +10,7 @@ import { UncontrolledLogin } from "./UncontrolledLogin";
 import { Container } from "./Container";
 import { LanguageContext } from "./LanguageContext";
 import { DisplayLanguage } from "./DisplayLanguage";
-
-// import { Message } from "./Message";
-// import { Welcome } from "./Welcome";
-
+import { Sum } from "./Sum";
 export class App extends React.Component {
   state = {
     language: "en",
@@ -30,7 +26,7 @@ export class App extends React.Component {
     return (
       <Container title="My Awesome Application">
         {/* <Hello /> */}
-        <select
+        {/* <select
           value={this.state.language}
           onChange={this.handleLanguageChange}
         >
@@ -40,17 +36,17 @@ export class App extends React.Component {
         <LanguageContext.Provider value={this.state.language}>
           <DisplayLanguage />
         </LanguageContext.Provider>
-        <Hello />
+        <Hello /> */}
         {/* <Message /> */}
         {/* <Welcome name="Riccardo" age={18} /> */}
-        <Counter timeout={1000} incrementBy={1} initialValue={0} />
+        {/* <Counter timeout={1000} incrementBy={1} initialValue={0} />
         <ClickCounter incrementBy={1} initialValue={0} />
         <ClickTracker />
         <InteractiveWelcome name="Riccardo" />
         <Login />
-        <UncontrolledLogin />
-        <Colors items={["Rosso", "Verde", "Giallo", "Blu"]} />
-        <TodoList>
+        <UncontrolledLogin /> */}
+        <Sum />
+        {/* <TodoList>
           {({ id, _inputRef, handleReset, handleReset2, handleTodoList }) => {
             return (
               <>
@@ -93,7 +89,7 @@ export class App extends React.Component {
               </>
             );
           }}
-        </TodoList>
+        </TodoList> */}
       </Container>
     );
   }
