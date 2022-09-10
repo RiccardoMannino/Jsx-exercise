@@ -8,15 +8,38 @@ import { InteractiveWelcome } from "./InteractiveWelcome";
 import { TodoList } from "./ToDolist";
 import { Login } from "./Login";
 import { UncontrolledLogin } from "./UncontrolledLogin";
+import { Container } from "./Container";
+import { LanguageContext } from "./LanguageContext";
+import { DisplayLanguage } from "./DisplayLanguage";
+
 // import { Message } from "./Message";
 // import { Welcome } from "./Welcome";
 
 export class App extends React.Component {
+  state = {
+    language: "en",
+  };
+
+  handleLanguageChange = (event) => {
+    this.setState({
+      language: event.target.value,
+    });
+  };
+
   render() {
     return (
-      <div>
+      <Container title="My Awesome Application">
         {/* <Hello /> */}
-        <h1>My Awesome Application</h1>
+        <select
+          value={this.state.language}
+          onChange={this.handleLanguageChange}
+        >
+          <option value="en">English</option>
+          <option value="it">Italiano</option>
+        </select>
+        <LanguageContext.Provider value={this.state.language}>
+          <DisplayLanguage />
+        </LanguageContext.Provider>
         <Hello />
         {/* <Message /> */}
         {/* <Welcome name="Riccardo" age={18} /> */}
@@ -27,8 +50,52 @@ export class App extends React.Component {
         <Login />
         <UncontrolledLogin />
         <Colors items={["Rosso", "Verde", "Giallo", "Blu"]} />
-        <TodoList />
-      </div>
+        <TodoList>
+          {({ id, _inputRef, handleReset, handleReset2, handleTodoList }) => {
+            return (
+              <>
+                <ul className=" flex-col p-2  bg-slate-600 w-fit ml-2 rounded">
+                  {id.map((todos, index) => (
+                    <>
+                      <li
+                        className="  bg-red-600 text-zinc-100 w-fit mr-4 mb-2 rounded flex justify-between"
+                        key={todos + index}
+                      >
+                        {todos}
+                      </li>
+                      <button
+                        className=" bg-lime-500 min-w-fit ml-5 rounded mb-2
+                 "
+                        onClick={handleReset}
+                      >
+                        Rimuovi Elemento
+                      </button>
+                    </>
+                  ))}
+                </ul>
+
+                <input
+                  className="border-t-indigo-600 bg-lime-400 p-3 ml-2 mr-2 mt-2"
+                  ref={_inputRef}
+                ></input>
+                <button
+                  className="bg-sky-500 p-3 mr-2 mt-2 rounded"
+                  onClick={handleTodoList}
+                >
+                  Aggiungi Task
+                </button>
+                <button
+                  className="bg-cyan-900 p-3 rounded "
+                  onClick={handleReset2}
+                >
+                  Rimuovi Task
+                </button>
+              </>
+            );
+          }}
+        </TodoList>
+      </Container>
     );
   }
 }
+// render props-02 : usando la children props non cambia nulla nella renderizzazione
