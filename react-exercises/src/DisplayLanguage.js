@@ -5,8 +5,9 @@ export class DisplayLanguage extends React.Component {
   render() {
     return (
       <>
-        <p>Hello!</p>
-        <p>Ciao!</p>
+        <LanguageContext.Consumer>
+          {(language) => (language === "en" ? <h1>Hello!</h1> : <h1>Ciao!</h1>)}
+        </LanguageContext.Consumer>
       </>
     );
   }
