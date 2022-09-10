@@ -33,7 +33,7 @@ export class TodoList extends React.Component {
   render() {
     return (
       <>
-        {this.props.render({
+        {this.props.children({
           id: this.state.id,
           _inputRef: this._inputRef,
           handleReset: this.handleReset,
