@@ -29,14 +29,8 @@ export class App extends React.Component {
         <Login />
         <UncontrolledLogin />
         <Colors items={["Rosso", "Verde", "Giallo", "Blu"]} />
-        <TodoList
-          render={({
-            id,
-            _inputRef,
-            handleReset,
-            handleReset2,
-            handleTodoList,
-          }) => {
+        <TodoList>
+          {({ id, _inputRef, handleReset, handleReset2, handleTodoList }) => {
             return (
               <>
                 <ul className=" flex-col p-2  bg-slate-600 w-fit ml-2 rounded">
@@ -78,8 +72,9 @@ export class App extends React.Component {
               </>
             );
           }}
-        ></TodoList>
+        </TodoList>
       </Container>
     );
   }
 }
+// render props-02 : usando la children props non cambia nulla nella renderizzazione
