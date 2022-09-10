@@ -45,7 +45,7 @@ export class App extends React.Component {
         <InteractiveWelcome name="Riccardo" />
         <Login />
         <UncontrolledLogin /> */}
-        <Sum />
+        <Sum numbers={[1, 2, 3, 4, 5]} />
         {/* <TodoList>
           {({ id, _inputRef, handleReset, handleReset2, handleTodoList }) => {
             return (
