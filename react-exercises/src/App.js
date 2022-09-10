@@ -9,16 +9,37 @@ import { TodoList } from "./ToDolist";
 import { Login } from "./Login";
 import { UncontrolledLogin } from "./UncontrolledLogin";
 import { Container } from "./Container";
+import { LanguageContext } from "./LanguageContext";
+import { DisplayLanguage } from "./DisplayLanguage";
 
 // import { Message } from "./Message";
 // import { Welcome } from "./Welcome";
 
 export class App extends React.Component {
+  state = {
+    language: "en",
+  };
+
+  handleLanguageChange = (event) => {
+    this.setState({
+      language: event.target.value,
+    });
+  };
+
   render() {
     return (
       <Container title="My Awesome Application">
         {/* <Hello /> */}
-
+        <select
+          value={this.state.language}
+          onChange={this.handleLanguageChange}
+        >
+          <option value="en">English</option>
+          <option value="it">Italiano</option>
+        </select>
+        <LanguageContext.Provider value={this.state.language}>
+          <DisplayLanguage />
+        </LanguageContext.Provider>
         <Hello />
         {/* <Message /> */}
         {/* <Welcome name="Riccardo" age={18} /> */}
