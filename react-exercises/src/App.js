@@ -11,6 +11,7 @@ import { Container } from "./Container";
 import { LanguageContext } from "./LanguageContext";
 import { DisplayLanguage } from "./DisplayLanguage";
 import { Sum } from "./Sum";
+
 export class App extends React.Component {
   state = {
     language: "en",
@@ -39,13 +40,13 @@ export class App extends React.Component {
         <Hello /> */}
         {/* <Message /> */}
         {/* <Welcome name="Riccardo" age={18} /> */}
-        {/* <Counter timeout={1000} incrementBy={1} initialValue={0} />
-        <ClickCounter incrementBy={1} initialValue={0} />
-        <ClickTracker />
+        {/* <Counter timeout={1000} incrementBy={1} initialValue={0} /> */}
+        <ClickCounter />
+        {/* <ClickTracker />
         <InteractiveWelcome name="Riccardo" />
         <Login />
         <UncontrolledLogin /> */}
-        <Sum />
+        {/* <Sum /> */}
         {/* <TodoList>
           {({ id, _inputRef, handleReset, handleReset2, handleTodoList }) => {
             return (
