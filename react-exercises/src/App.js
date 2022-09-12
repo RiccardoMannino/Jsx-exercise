@@ -42,6 +42,7 @@ export class App extends React.Component {
         {/* <Welcome name="Riccardo" age={18} /> */}
         {/* <Counter timeout={1000} incrementBy={1} initialValue={0} /> */}
         <ClickCounter />
+        <Login />
         {/* <ClickTracker />
         <InteractiveWelcome name="Riccardo" />
         <Login />
