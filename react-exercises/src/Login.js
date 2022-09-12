@@ -82,6 +82,7 @@ import { useState } from "react";
 //     );
 //   }
 // }
+
 export function Login() {
   const [data, setData] = useState({
     username: "",
@@ -90,7 +91,11 @@ export function Login() {
     login: false,
   });
 
-  function handleLogin(event) {
+  const handleReset = () => {
+    setData({ username: "", password: "", remember: false });
+  };
+
+  const handleLogin = (event) => {
     const { name, value, checked, type } = event.target;
 
     setData((data) => {
@@ -99,13 +104,13 @@ export function Login() {
         [name]: type === "checkbox" ? checked : value,
       };
     });
-  }
+  };
 
   const [login, setLogin] = useState(true);
 
-  function LoginButton() {
+  const LoginButton = () => {
     setLogin(login);
-  }
+  };
 
   return (
     <form>
@@ -142,6 +147,9 @@ export function Login() {
           Login
         </button>
       )}
+      <button type="reset" onClick={handleReset}>
+        reset
+      </button>
     </form>
   );
 }
