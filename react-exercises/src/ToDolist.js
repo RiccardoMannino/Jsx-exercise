@@ -3,7 +3,7 @@ import React, { createRef } from "react";
 export class TodoList extends React.Component {
   _inputRef = createRef();
 
-  state = { id: [""] };
+  state = { id: [] };
 
   handleTodoList = (event) => {
     const name = event.target.name;
@@ -16,11 +16,8 @@ export class TodoList extends React.Component {
   };
 
   handleReset = (event) => {
-    const name = event.target.name;
-    const todo = this._inputRef.current.value;
-
     this.setState((state) => ({
-      id: (state.id = [""]),
+      id: (state.id = []),
     }));
   };
 
