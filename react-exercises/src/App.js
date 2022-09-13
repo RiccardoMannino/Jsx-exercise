@@ -4,7 +4,7 @@ import { ClickTracker } from "./ClickTracker";
 import { Counter } from "./Counter";
 import { Hello } from "./Hello";
 import { InteractiveWelcome } from "./InteractiveWelcome";
-import { TodoList } from "./ToDolist";
+import { ToDoList } from "./ToDolist";
 import { Login } from "./Login";
 import { UncontrolledLogin } from "./UncontrolledLogin";
 import { Container } from "./Container";
@@ -42,7 +42,7 @@ export class App extends React.Component {
         {/* <Welcome name="Riccardo" age={18} /> */}
         {/* <Counter timeout={1000} incrementBy={1} initialValue={0} /> */}
         <ClickCounter />
-        <Login />
+        <ToDoList />
         {/* <ClickTracker />
         <InteractiveWelcome name="Riccardo" />
         <Login />
