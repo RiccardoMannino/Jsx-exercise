@@ -15,11 +15,19 @@ export class TodoList extends React.Component {
     }));
   };
 
-  handleReset = (item) => {
-    this.setState((state) => ({
-      id: state.id.filter((i) => i !== item),
+  handleReset = (event) => {
+    const name = event.target.name;
+
+    this.setState((state, item) => ({
+      [name]: state.id.filter((i) => i !== item),
     }));
   };
+
+  // handleReset = (item) => {
+  //   this.setState((state) => ({
+  //     id: state.id.filter((i) => i !== item),
+  //   }));
+  // };
 
   handleReset2 = () => {
     this.setState((state) => ({
