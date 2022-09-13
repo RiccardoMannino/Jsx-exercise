@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export function ToDoList() {
-  const [data, setData] = useState([""]);
+  const [data, setData] = useState(["la", "lista"]);
 
   const handleTodoList = (event) => {
     event.preventDefault();
