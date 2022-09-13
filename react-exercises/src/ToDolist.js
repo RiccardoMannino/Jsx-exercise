@@ -3,7 +3,7 @@ import React, { createRef } from "react";
 export class TodoList extends React.Component {
   _inputRef = createRef();
 
-  state = { id: [""] };
+  state = { id: [] };
 
   handleTodoList = (event) => {
     const name = event.target.name;
@@ -15,17 +15,15 @@ export class TodoList extends React.Component {
     }));
   };
 
-  handleReset = (event) => {
-    const name = event.target.name;
-
-    this.setState(() => ({
-      [name]: this.state.id.pop(),
+  handleReset = (item) => {
+    this.setState((state) => ({
+      id: state.id.filter((i) => i !== item),
     }));
   };
 
   handleReset2 = () => {
     this.setState((state) => ({
-      id: (state.id = [""]),
+      id: (state.id = []),
     }));
   };
 
@@ -34,9 +32,13 @@ export class TodoList extends React.Component {
       <>
         <ul>
           {this.state.id.map((todos, index) => (
-            <li key={todos + index}>{todos}</li>
+            <li key={todos + index}>
+              {todos}{" "}
+              <button onClick={() => this.handleReset(todos)}>
+                Rimuovi Elemento
+              </button>
+            </li>
           ))}
-          <button onClick={this.handleReset}>Rimuovi Elemento</button>
         </ul>
 
         <input ref={this._inputRef}></input>
