@@ -108,7 +108,8 @@ export function Login() {
 
   const [login, setLogin] = useState(true);
 
-  const LoginButton = () => {
+  const LoginButton = (event) => {
+    event.preventDefault();
     setLogin(login);
   };
 
