@@ -43,6 +43,7 @@ export class App extends React.Component {
         {/* <Counter timeout={1000} incrementBy={1} initialValue={0} /> */}
         <ClickCounter initialValue={0} />
         <ToDoList />
+        <Counter />
         {/* <ClickTracker />
         <InteractiveWelcome name="Riccardo" />
         <Login />
