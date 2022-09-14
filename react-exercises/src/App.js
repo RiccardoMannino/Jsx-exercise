@@ -11,23 +11,23 @@ import { Container } from "./Container";
 import { LanguageContext } from "./LanguageContext";
 import { DisplayLanguage } from "./DisplayLanguage";
 import { Sum } from "./Sum";
+import { GithubUser } from "./GithubUser";
 
-export class App extends React.Component {
-  state = {
-    language: "en",
-  };
+export function App() {
+  // state = {
+  //   language: "en",
+  // };
 
-  handleLanguageChange = (event) => {
-    this.setState({
-      language: event.target.value,
-    });
-  };
+  // handleLanguageChange = (event) => {
+  //   this.setState({
+  //     language: event.target.value,
+  //   });
+  // };
 
-  render() {
-    return (
-      <Container title="My Awesome Application">
-        {/* <Hello /> */}
-        {/* <select
+  return (
+    <Container title="My Awesome Application">
+      {/* <Hello /> */}
+      {/* <select
           value={this.state.language}
           onChange={this.handleLanguageChange}
         >
@@ -38,18 +38,19 @@ export class App extends React.Component {
           <DisplayLanguage />
         </LanguageContext.Provider>
         <Hello /> */}
-        {/* <Message /> */}
-        {/* <Welcome name="Riccardo" age={18} /> */}
-        {/* <Counter timeout={1000} incrementBy={1} initialValue={0} /> */}
-        <ClickCounter initialValue={0} />
-        <ToDoList />
-        <Counter />
-        {/* <ClickTracker />
+      {/* <Message /> */}
+      {/* <Welcome name="Riccardo" age={18} /> */}
+      {/* <Counter timeout={1000} incrementBy={1} initialValue={0} /> */}{" "}
+      <GithubUser username="RiccardoMannino" />
+      <ClickCounter initialValue={0} />
+      <ToDoList />
+      <Counter />
+      {/* <ClickTracker />
         <InteractiveWelcome name="Riccardo" />
         <Login />
         <UncontrolledLogin /> */}
-        {/* <Sum /> */}
-        {/* <TodoList>
+      {/* <Sum /> */}
+      {/* <TodoList>
           {({ id, _inputRef, handleReset, handleReset2, handleTodoList }) => {
             return (
               <>
@@ -93,8 +94,8 @@ export class App extends React.Component {
             );
           }}
         </TodoList> */}
-      </Container>
-    );
-  }
+    </Container>
+  );
 }
+
 // render props-02 : usando la children props non cambia nulla nella renderizzazione
