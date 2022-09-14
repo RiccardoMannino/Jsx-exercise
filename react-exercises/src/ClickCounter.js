@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // export class ClickCounter extends React.Component {
 //   state = {
@@ -22,8 +22,16 @@ import { useState } from "react";
 //   }
 // }
 
-export function ClickCounter({ initialValue = 0 }) {
+export function ClickCounter({ initialValue }) {
   const [counter, setCounter] = useState(initialValue);
+
+  function onCounterChange() {
+    console.log(`The counter is now ${counter}`);
+  }
+
+  useEffect(() => {
+    onCounterChange();
+  }, [counter]);
 
   function handleClick() {
     setCounter((counter) => counter + 1);
@@ -34,6 +42,7 @@ export function ClickCounter({ initialValue = 0 }) {
 
   return (
     <div>
+      {/* <onCounterChange /> */}
       <h1>Click : {counter}</h1>
       <button className="bg-green-500" onClick={handleClick}>
         Increment
