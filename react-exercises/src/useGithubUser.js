@@ -7,20 +7,18 @@ export function useGithubUser(username) {
 
   useEffect(() => {
     const fetchDati = async (username) => {
-      setLoading(true); // caricamento
-      setError(null); // nessun errore
-      try {
-        const response = await fetch(
-          `https://api.github.com/users/${username}`
-        );
-        const json = await response.json();
-        setData(json);
-      } catch (error) {
-        setError(error); // errore
-        setData(null); // quindi nessun dato
-      } finally {
-        setLoading(false); // rimozione della scritta di caricamento
-      }
+      //   setLoading(true); // caricamento
+      //   setError(null); // nessun errore
+      //   try {
+      const response = await fetch(`https://api.github.com/users/${username}`);
+      const json = await response.json();
+      setData(json);
+      //   } catch (error) {
+      //     setError(error); // errore
+      //     setData(null); // quindi nessun dato
+      //   } finally {
+      //     setLoading(false); // rimozione della scritta di caricamento
+      //   }
     };
     fetchDati(username);
   }, [username]);
