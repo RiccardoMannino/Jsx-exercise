@@ -13,6 +13,7 @@ import { DisplayLanguage } from "./DisplayLanguage";
 import { Sum } from "./Sum";
 import { GithubUser } from "./GithubUser";
 import { GithubUserList } from "./GithubUserList ";
+import { MyHookForm } from "./Myhookform";
 
 export function App() {
   // state = {
@@ -27,30 +28,24 @@ export function App() {
 
   return (
     <Container title="My Awesome Application">
-      {/* <Hello /> */}
-      {/* <select
-          value={this.state.language}
-          onChange={this.handleLanguageChange}
-        >
-          <option value="en">English</option>
-          <option value="it">Italiano</option>
-        </select>
-        <LanguageContext.Provider value={this.state.language}>
-          <DisplayLanguage />
-        </LanguageContext.Provider>
-        <Hello /> */}
-      {/* <Message /> */}
-      {/* <Welcome name="Riccardo" age={18} /> */}
-      {/* <Counter timeout={1000} incrementBy={1} initialValue={0} /> */}{" "}
       <GithubUserList username={["riccardomannino"]} />
       <ClickCounter initialValue={0} />
+      <MyHookForm />
       <Counter />
-      {/* <ClickTracker />
+    </Container>
+  );
+
+  {
+    /* <ClickTracker />
         <InteractiveWelcome name="Riccardo" />
         <Login />
-        <UncontrolledLogin /> */}
-      {/* <Sum /> */}
-      {/* <TodoList>
+        <UncontrolledLogin /> */
+  }
+  {
+    /* <Sum /> */
+  }
+  {
+    /* <TodoList>
           {({ id, _inputRef, handleReset, handleReset2, handleTodoList }) => {
             return (
               <>
@@ -93,9 +88,8 @@ export function App() {
               </>
             );
           }}
-        </TodoList> */}
-    </Container>
-  );
+        </TodoList> */
+  }
 }
 
 // render props-02 : usando la children props non cambia nulla nella renderizzazione
