@@ -1,53 +1,26 @@
-import React from "react";
-import { useEffect, useState } from "react";
-
-// export class ClickCounter extends React.Component {
-//   state = {
-//     counter: this.props.initialValue,
-//   };
-
-//   counterIncrement = () => {
-//     this.setState((state) => ({
-//       counter: state.counter + this.props.incrementBy,
-//     }));
-//   };
-
-//   render() {
-//     return (
-//       <>
-//         <h3>Click: {this.state.counter}</h3>
-//         <CounterBotton counterIncrement={this.counterIncrement} />
-//       </>
-//     );
-//   }
-// }
+import { useCounter } from "./useCounter";
 
 export function ClickCounter({ initialValue }) {
-  const [counter, setCounter] = useState(initialValue);
+  const { counter, increment, decrement, reset } = useCounter(initialValue);
 
-  function onCounterChange() {
-    console.log(`The counter is now ${counter}`);
-  }
+  // function onCounterChange() {
+  //   console.log(`The counter is now ${counter}`);
+  // }
 
-  useEffect(() => {
-    onCounterChange();
-  }, [counter]);
-
-  function handleClick() {
-    setCounter((counter) => counter + 1);
-  }
-  function handleReset() {
-    setCounter(initialValue);
-  }
+  // useEffect(() => {
+  //   onCounterChange();
+  // }, [counter]);
 
   return (
     <div>
-      {/* <onCounterChange /> */}
       <h1>Click : {counter}</h1>
-      <button className="bg-green-500" onClick={handleClick}>
+      <button className="bg-green-500" onClick={increment}>
         Increment
       </button>
-      <button className="bg-red-600 ml-2" onClick={handleReset}>
+      <button className="bg-blue-500 ml-2" onClick={decrement}>
+        decrement
+      </button>
+      <button className="bg-red-600 ml-2" onClick={reset}>
         Reset
       </button>
     </div>
