@@ -14,6 +14,10 @@ export function useGithubUser(username) {
           `https://api.github.com/users/${username}`
         );
         const json = await response.json();
+
+        if (response.status !== 200) {
+          setError(new Error());
+        }
         setData(json);
       } catch (error) {
         setError(error); // errore
