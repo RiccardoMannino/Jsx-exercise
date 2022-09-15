@@ -31,7 +31,7 @@ export function ClickCounter({ initialValue }) {
 
   useEffect(() => {
     onCounterChange();
-  }, [counter]);
+  }, [counter, onCounterChange]);
 
   function handleClick() {
     setCounter((counter) => counter + 1);
