@@ -28,9 +28,9 @@ export function App() {
 
   return (
     <Container title="My Awesome Application">
-      <GithubUserList username={["riccardomannino"]} />
-      <ClickCounter initialValue={0} />
-      <MyHookForm />
+      <GithubUser username={["riccardomannino"]} />
+      {/* <ClickCounter initialValue={0} />
+      <MyHookForm /> */}
       <Counter />
     </Container>
   );
