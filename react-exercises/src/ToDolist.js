@@ -13,8 +13,8 @@ export function ToDoList() {
 
   return (
     <>
-      <form>
-        <input onSubmit={handleTodoList} name="todo"></input>
+      <form onSubmit={handleTodoList}>
+        <input name="todo" />
         <button type="submit">Submit</button>
       </form>
       <ul>
