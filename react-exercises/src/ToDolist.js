@@ -14,7 +14,7 @@ export function ToDoList() {
   return (
     <>
       <form onSubmit={handleTodoList}>
-        <input name="todo"></input>
+        <input name="todo"/>
         <button type="submit">Submit</button>
       </form>
       <ul>
