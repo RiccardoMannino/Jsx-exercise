@@ -12,6 +12,7 @@ import { LanguageContext } from "./LanguageContext";
 import { DisplayLanguage } from "./DisplayLanguage";
 import { Sum } from "./Sum";
 import { GithubUser } from "./GithubUser";
+import { GithubUserList } from "./GithubUserList ";
 
 export function App() {
   // state = {
@@ -41,7 +42,7 @@ export function App() {
       {/* <Message /> */}
       {/* <Welcome name="Riccardo" age={18} /> */}
       {/* <Counter timeout={1000} incrementBy={1} initialValue={0} /> */}{" "}
-      <GithubUser username="RiccardoMannino" />
+      <GithubUserList />
       <ClickCounter initialValue={0} />
       <ToDoList />
       <Counter />
