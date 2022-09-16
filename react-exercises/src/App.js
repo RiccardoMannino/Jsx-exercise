@@ -14,7 +14,9 @@ import { Sum } from "./Sum";
 import { GithubUser } from "./GithubUser";
 import { GithubUserList } from "./GithubUserList ";
 import { MyHookForm } from "./Myhookform";
+
 import { CarDetails } from "./CarDetails";
+
 
 export function App() {
   // state = {
@@ -32,6 +34,7 @@ export function App() {
       <GithubUser username={["sfjd"]} />
       {/* <ClickCounter initialValue={0} />
       <MyHookForm /> */}
+      <CurrentLocation />
       <Counter />
       <CarDetails
         initialValue={{ model: "audi", year: "2000", color: "blu" }}
