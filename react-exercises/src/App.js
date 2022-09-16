@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ClickCounter } from "./ClickCounter";
 import { ClickTracker } from "./ClickTracker";
 import { Counter } from "./Counter";
@@ -17,29 +17,32 @@ import { MyHookForm } from "./Myhookform";
 
 import { CarDetails } from "./CarDetails";
 
-
 export function App() {
-  // state = {
-  //   language: "en",
-  // };
-
-  // handleLanguageChange = (event) => {
-  //   this.setState({
-  //     language: event.target.value,
-  //   });
-  // };
+  const [language, setLanguage] = useState("en");
+  function handleLanguageChange(event) {
+    setLanguage(event.target.value);
+  }
 
   return (
-    <Container title="My Awesome Application">
-      <GithubUser username={["sfjd"]} />
-      {/* <ClickCounter initialValue={0} />
+    <div>
+      <select value={language} onChange={handleLanguageChange}>
+        <option value="en">English</option>
+        <option value="it">Italiano</option>
+      </select>
+      <LanguageContext.Provider value={language}>
+        <Container title="My Awesome Application">
+          <GithubUser username={["sfjd"]} />
+          {/* <ClickCounter initialValue={0} />
       <MyHookForm /> */}
-      <CurrentLocation />
-      <Counter />
-      <CarDetails
-        initialValue={{ model: "audi", year: "2000", color: "blu" }}
-      />
-    </Container>
+          {/* <CurrentLocation /> */}
+          <DisplayLanguage />
+          <Counter />
+          <CarDetails
+            initialValue={{ model: "audi", year: "2000", color: "blu" }}
+          />
+        </Container>
+      </LanguageContext.Provider>
+    </div>
   );
 
   {
