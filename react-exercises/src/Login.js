@@ -1,87 +1,5 @@
-import React from "react";
-import { useState } from "react";
-
-// export class Login extends React.Component {
-//   state = {
-//     username: "",
-//     password: "",
-//     remember: false,
-//     login: false,
-//   };
-
-//   handleInputChange = (event) => {
-//     const name = event.target.name;
-//     const value = event.target.value;
-//     const type = event.target.type;
-//     const checked = event.target.checked;
-
-//     this.setState({
-//       [name]: type === "checkbox" ? checked : value,
-//     });
-//   };
-
-//   onLogin = () => {
-//     this.setState(
-//       {
-//         login: true,
-//       }
-//       // () => {
-//       //   console.log(this.state);
-//       // }
-//     );
-//   };
-
-//   reset = () => {
-//     this.setState({
-//       username: "",
-//       password: "",
-//       remember: false,
-//     });
-//   };
-
-//   render() {
-//     return (
-//       <>
-//         <input
-//           name="username"
-//           value={this.state.username}
-//           onChange={this.handleInputChange}
-//         ></input>
-//         <input
-//           name="password"
-//           type="password"
-//           value={this.state.password}
-//           onChange={this.handleInputChange}
-//         ></input>
-//         <input
-//           name="remember"
-//           type="checkbox"
-//           checked={this.state.remember}
-//           onChange={this.handleInputChange}
-//         ></input>
-
-//         {this.state.username && this.state.password ? (
-//           <button
-//             style={{
-//               backgroundColor: this.state.password.length < 8 ? "red" : "green",
-//             }}
-//             type="submit"
-//             name="login"
-//             value={this.state.login}
-//             onClick={this.onLogin}
-//           >
-//             Login
-//           </button>
-//         ) : (
-//           <button type="submit" name="login" disabled>
-//             Login
-//           </button>
-//         )}
-//         <button onClick={this.reset}>Reset</button>
-//       </>
-//     );
-//   }
-// }
+import React, { useRef } from "react";
+import { useState, useEffect } from "react";
 
 export function Login() {
   const [data, setData] = useState({
@@ -90,6 +8,10 @@ export function Login() {
     remember: false,
     login: false,
   });
+  const inputRef = useRef();
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   const handleReset = () => {
     setData({ username: "", password: "", remember: false });
@@ -117,6 +39,7 @@ export function Login() {
       <input
         onChange={handleLogin}
         name="username"
+        ref={inputRef}
         value={data.username}
       ></input>
       <input
