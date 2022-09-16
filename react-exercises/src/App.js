@@ -14,6 +14,7 @@ import { Sum } from "./Sum";
 import { GithubUser } from "./GithubUser";
 import { GithubUserList } from "./GithubUserList ";
 import { MyHookForm } from "./Myhookform";
+import { CurrentLocation } from "./CurrentLocation";
 
 export function App() {
   // state = {
@@ -31,6 +32,7 @@ export function App() {
       <GithubUser username={["sfjd"]} />
       {/* <ClickCounter initialValue={0} />
       <MyHookForm /> */}
+      <CurrentLocation />
       <Counter />
     </Container>
   );
