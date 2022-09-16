@@ -33,7 +33,9 @@ export function App() {
       {/* <ClickCounter initialValue={0} />
       <MyHookForm /> */}
       <Counter />
-      <CarDetails />
+      <CarDetails
+        initialValue={{ model: "audi", year: "2000", color: "blu" }}
+      />
     </Container>
   );
 

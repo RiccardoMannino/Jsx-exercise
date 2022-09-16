@@ -1,24 +1,23 @@
-import { useState, useRef } from "react";
+import { useRef, useEffect } from "react";
 
-export function CarDetails({
-  props = {
-    model: "",
-    year: "",
-    color: "",
-  },
-}) {
-  const [input, setInput] = useState(props);
+export function CarDetails({ initialValue }) {
   const inputRef = useRef();
 
-  function handleInputChange(event) {
-    setInput(event.target.value);
-  }
+  useEffect(() => {
+    inputRef.current.elements.model.value = initialValue.model;
+    inputRef.current.elements.year.value = initialValue.year;
+    inputRef.current.elements.color.value = initialValue.color;
+  }, [initialValue]);
 
   return (
-    <form>
-      <label></label>
+    <form ref={inputRef}>
+      <label>Modello :</label>
       <input name="model" type="text"></input>
+      <br />
+      <label>Anno :</label>
       <input name="year" type="text"></input>
+      <br />
+      <label>Colore :</label>
       <input name="color" type="text"></input>
     </form>
   );
