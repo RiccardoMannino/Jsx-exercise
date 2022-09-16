@@ -1,35 +1,54 @@
 import { useState, useEffect } from "react";
 
-export function CurrentLocation() {
-  const [location, setLocation] = useState();
+export function CurrentLocation(loc) {
+  const [location, setLocation] = useState(loc);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
     try {
-      function success(pos) {
-        const crd = pos.coords;
+      setLoading(true);
 
-        setLocation();
+      navigator.geolocation.getCurrentPosition((position) => {
+        setLocation(position);
         console.log("Your current position is:");
-        console.log(`Latitude : ${crd.latitude}`);
-        console.log(`Longitude: ${crd.longitude}`);
-        console.log(`More or less ${crd.accuracy} meters.`);
-      }
-      navigator.geolocation.getCurrentPosition(success, error);
+        console.log(`Latitude : ${position.latitude}`);
+        console.log(`Longitude: ${position.longitude}`);
+        console.log(`More or less ${position.accuracy} meters.`);
+      });
     } catch (err) {
       setError(`ERROR(${err.code}): ${err.message}`);
     } finally {
       setLoading(false);
     }
-  }, []);
-  //   return { location, loading, error };
-  return (
-    <div>
-      {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
-      {location && <p>{location}</p>}
-    </div>
-  );
+  }, [loc]);
+
+  function posizione() {
+    try {
+      setLoading(true);
+
+      navigator.geolocation.getCurrentPosition((position) => {
+        setLocation((position) => {
+          return {
+            latitudine: position.latitude,
+            longitudine: position.longitude,
+            precisione: position.accuracy,
+          };
+        });
+      });
+    } catch (err) {
+      setError(`ERROR(${err.code}): ${err.message}`);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return { location, loading, error, posizione };
+  // return (
+  //   <div>
+  //     {loading && <p>Loading...</p>}
+  //     {error && <p>{error}</p>}
+  //     {location && <p>{location}</p>}
+  //   </div>
+  // );
 }
