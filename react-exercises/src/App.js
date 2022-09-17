@@ -16,7 +16,16 @@ import { GithubUserList } from "./GithubUserList ";
 import { MyHookForm } from "./Myhookform";
 
 import { CarDetails } from "./CarDetails";
+import { FilteredList } from "./FilteredList";
 
+const persone = [
+  { id: 1, name: "Paola", age: 30 },
+  { id: 2, name: "Chiara", age: 15 },
+  { id: 3, name: "Giuseppe", age: 32 },
+  { id: 4, name: "Paolo", age: 10 },
+  { id: 5, name: "Carla", age: 34 },
+  { id: 6, name: "Roberto", age: 5 },
+];
 export function App() {
   const [language, setLanguage] = useState("en");
   function handleLanguageChange(event) {
@@ -35,6 +44,7 @@ export function App() {
           {/* <ClickCounter initialValue={0} />
       <MyHookForm /> */}
           {/* <CurrentLocation /> */}
+          <FilteredList lista={persone} />
           <DisplayLanguage />
           <Counter />
           <CarDetails
