@@ -1,56 +1,71 @@
-import React from "react";
+import React, { useState } from "react";
 import { ClickCounter } from "./ClickCounter";
 import { ClickTracker } from "./ClickTracker";
-import { Colors } from "./Colors";
 import { Counter } from "./Counter";
 import { Hello } from "./Hello";
 import { InteractiveWelcome } from "./InteractiveWelcome";
-import { TodoList } from "./ToDolist";
+import { ToDoList } from "./ToDolist";
 import { Login } from "./Login";
 import { UncontrolledLogin } from "./UncontrolledLogin";
 import { Container } from "./Container";
 import { LanguageContext } from "./LanguageContext";
 import { DisplayLanguage } from "./DisplayLanguage";
+import { Sum } from "./Sum";
+import { GithubUser } from "./GithubUser";
+import { GithubUserList } from "./GithubUserList ";
+import { MyHookForm } from "./Myhookform";
 
-// import { Message } from "./Message";
-// import { Welcome } from "./Welcome";
+import { CarDetails } from "./CarDetails";
+import { FilteredList } from "./FilteredList";
 
-export class App extends React.Component {
-  state = {
-    language: "en",
-  };
+const persone = [
+  { id: 1, name: "Paola", age: 30 },
+  { id: 2, name: "Chiara", age: 15 },
+  { id: 3, name: "Giuseppe", age: 32 },
+  { id: 4, name: "Paolo", age: 10 },
+  { id: 5, name: "Carla", age: 34 },
+  { id: 6, name: "Roberto", age: 5 },
+];
+export function App() {
+  const [language, setLanguage] = useState("en");
+  function handleLanguageChange(event) {
+    setLanguage(event.target.value);
+  }
 
-  handleLanguageChange = (event) => {
-    this.setState({
-      language: event.target.value,
-    });
-  };
-
-  render() {
-    return (
-      <Container title="My Awesome Application">
-        {/* <Hello /> */}
-        <select
-          value={this.state.language}
-          onChange={this.handleLanguageChange}
-        >
-          <option value="en">English</option>
-          <option value="it">Italiano</option>
-        </select>
-        <LanguageContext.Provider value={this.state.language}>
+  return (
+    <div>
+      <select value={language} onChange={handleLanguageChange}>
+        <option value="en">English</option>
+        <option value="it">Italiano</option>
+      </select>
+      <LanguageContext.Provider value={language}>
+        <Container title="My Awesome Application">
+          <GithubUser username={["sfjd"]} />
+          {/* <ClickCounter initialValue={0} />
+      <MyHookForm /> */}
+          {/* <CurrentLocation /> */}
+          <FilteredList lista={persone} />
           <DisplayLanguage />
-        </LanguageContext.Provider>
-        <Hello />
-        {/* <Message /> */}
-        {/* <Welcome name="Riccardo" age={18} /> */}
-        <Counter timeout={1000} incrementBy={1} initialValue={0} />
-        <ClickCounter incrementBy={1} initialValue={0} />
-        <ClickTracker />
+          <Counter />
+          <CarDetails
+            initialValue={{ model: "audi", year: "2000", color: "blu" }}
+          />
+        </Container>
+      </LanguageContext.Provider>
+    </div>
+  );
+
+  {
+    /* <ClickTracker />
         <InteractiveWelcome name="Riccardo" />
         <Login />
-        <UncontrolledLogin />
-        <Colors items={["Rosso", "Verde", "Giallo", "Blu"]} />
-        <TodoList>
+        <UncontrolledLogin /> */
+  }
+  {
+    /* <Sum /> */
+  }
+  {
+    /* <TodoList>
           {({ id, _inputRef, handleReset, handleReset2, handleTodoList }) => {
             return (
               <>
@@ -93,9 +108,8 @@ export class App extends React.Component {
               </>
             );
           }}
-        </TodoList>
-      </Container>
-    );
+        </TodoList> */
   }
 }
+
 // render props-02 : usando la children props non cambia nulla nella renderizzazione
