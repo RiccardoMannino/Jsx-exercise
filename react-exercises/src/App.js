@@ -13,7 +13,7 @@ export function App() {
     <div>
       <Routes>
         <Route path="/" element={<Welcome name="Riccardo" />} />
-        <Route path="counter" element={<ClickCounter />} />
+        <Route path="counter" element={<ClickCounter initialValue={0} />} />
       </Routes>
     </div>
   );
