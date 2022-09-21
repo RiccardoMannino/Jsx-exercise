@@ -24,7 +24,12 @@ export function App() {
       </div>
       <Routes>
         <Route path="/" element={<Welcome name="Riccardo" />} />
-        <Route path="users" element={<GithubUserList />} />
+        <Route
+          path="/users"
+          element={<GithubUserList username={["riccardomannino"]} />}
+        />
+        <Route path=":username" element={<ShowGitHubUser />} />
+        <Route />
         <Route
           path="*"
           element={
