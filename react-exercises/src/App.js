@@ -1,8 +1,8 @@
 import React from "react";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, Route, Routes, Outlet } from "react-router-dom";
 import { Welcome } from "./Welcome";
 import { ClickCounter } from "./ClickCounter";
-
+import { ShowGithubUser } from "./ShowGithubUser";
 import { GithubUserList } from "./GithubUserList ";
 
 export function App() {
@@ -19,16 +19,24 @@ export function App() {
             ClickCounter
           </Link>
 
-          <Link to="user">ShowGithubUser</Link>
+          <Link to="users">ShowGithubUser</Link>
         </div>
       </div>
       <Routes>
         <Route path="/" element={<Welcome name="Riccardo" />} />
         <Route
           path="/users"
-          element={<GithubUserList username={["riccardomannino"]} />}
-        />
-        <Route path=":username" element={<ShowGitHubUser />} />
+          element={
+            <div>
+              <GithubUserList username={["riccardomannino"]} />
+              <hr />
+              <Outlet />
+            </div>
+          }
+        >
+          <Route path=":username" element={<ShowGithubUser />} />
+        </Route>
+
         <Route />
         <Route
           path="*"
