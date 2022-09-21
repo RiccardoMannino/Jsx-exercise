@@ -35,6 +35,7 @@ export function App() {
           }
         >
           <Route path=":username" element={<ShowGithubUser />} />
+          <Route index element={<h1>Add a user and select it</h1>} />
         </Route>
 
         <Route />
