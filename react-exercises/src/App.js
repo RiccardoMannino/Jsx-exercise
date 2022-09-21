@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import { Link, Route, Routes } from "react-router-dom";
+import React from "react";
+import { Link, Route, Routes, Outlet } from "react-router-dom";
 import { Welcome } from "./Welcome";
 import { ClickCounter } from "./ClickCounter";
 import { ShowGithubUser } from "./ShowGithubUser";
+import { GithubUserList } from "./GithubUserList ";
 
 export function App() {
   return (
@@ -18,11 +19,25 @@ export function App() {
             ClickCounter
           </Link>
 
-          <Link to="users/:username">ShowGithubUser</Link>
+          <Link to="users">ShowGithubUser</Link>
         </div>
       </div>
       <Routes>
         <Route path="/" element={<Welcome name="Riccardo" />} />
+        <Route
+          path="/users"
+          element={
+            <div>
+              <GithubUserList username={["riccardomannino"]} />
+              <hr />
+              <Outlet />
+            </div>
+          }
+        >
+          <Route path=":username" element={<ShowGithubUser />} />
+        </Route>
+
+        <Route />
         <Route
           path="*"
           element={
@@ -33,7 +48,6 @@ export function App() {
           }
         />
         <Route path="counter" element={<ClickCounter initialValue={0} />} />
-        <Route path="users/:username" element={<ShowGithubUser />} />
       </Routes>
     </div>
   );

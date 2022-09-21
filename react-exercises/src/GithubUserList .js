@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { GithubUser } from "./GithubUser";
 
 export function GithubUserList({ username }) {
@@ -15,7 +16,7 @@ export function GithubUserList({ username }) {
       <ul>
         {input.map((username, index) => (
           <li key={index}>
-            <GithubUser username={username} />
+            <Link to={username}>{username}</Link>
           </li>
         ))}
       </ul>
