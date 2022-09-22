@@ -4,12 +4,14 @@ import { Welcome } from "./Welcome";
 import { ClickCounter } from "./ClickCounter";
 import { ShowGithubUser } from "./ShowGithubUser";
 import { GithubUserList } from "./GithubUserList ";
+import { GithubUser } from "./GithubUser";
 
 export function App() {
   return (
     <div>
       <div>
         <h1>My awesome app!</h1>
+
         <div>
           <Link className="mr-3" to="/">
             Home
@@ -28,7 +30,7 @@ export function App() {
           path="/users"
           element={
             <div>
-              <GithubUserList username={["riccardomannino"]} />
+              <GithubUserList username={[""]} />
               <hr />
               <Outlet />
             </div>
