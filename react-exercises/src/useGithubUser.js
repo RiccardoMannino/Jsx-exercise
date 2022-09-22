@@ -1,33 +1,16 @@
-import { useState, useEffect } from "react";
+import useSWR from "swr";
+
+const fetcher = (url) => fetch(url).then((response) => response.json()); // questa funzione viene passata come secpndo parametro del SWR
 
 export function useGithubUser(username) {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false); // setta lo stato di caricamento
-  const [error, setError] = useState(null); // setta lo stato per gli errori
+  const { data, error } = useSWR(
+    `https://api.github.com/users/${username}`,
+    fetcher
+  );
 
-  useEffect(() => {
-    const fetchDati = async (username) => {
-      setLoading(true); // caricamento
-      setError(null); // nessun errore
-      try {
-        const response = await fetch(
-          `https://api.github.com/users/${username}`
-        );
-        const json = await response.json();
-
-        if (response.status !== 200) {
-          setError(new Error());
-        }
-        setData(json);
-      } catch (error) {
-        setError(error); // errore
-        setData(null); // quindi nessun dato
-      } finally {
-        setLoading(false); // rimozione della scritta di caricamento
-      }
-    };
-    fetchDati(username);
-  }, [username]);
-
-  return { data, error, loading };
+  return {
+    users: data,
+    error,
+    isLoading: !data && !error,
+  };
 }
